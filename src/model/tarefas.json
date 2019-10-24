@@ -2,7 +2,9 @@
     {
         "id": 1,
         "descricao": "Tarefa 1 - criação de API",
-        "dataInclusao": "09/10/2019",
+        "dataInclusao": "09/09/2019",
+        "concluidoEm": "11/10/2019",
+        "tempoConclusao" : 0,
         "concluido": true,
         "nomeColaborador" : "Caroline"
     },
@@ -10,6 +12,8 @@
         "id": 2,
         "descricao": "Tarefa 2 - criação de DB",
         "dataInclusao": "09/10/2019",
+        "concluidoEm": "12/10/2019",
+        "tempoConclusao" : 0,
         "concluido": false,
         "nomeColaborador" : "Helena"
     },
@@ -17,6 +21,8 @@
         "id" : 3,
         "descricao" : "Tarefa 3 - criação de Frontend com React",
         "dataInclusao" : "10/10/2019",
+        "concluidoEm": "13/10/2019",
+        "tempoConclusao" : 0,
         "concluido" : false,
         "nomeColaborador" : "Dani"
     },
@@ -24,13 +30,17 @@
         "id" : 4,
         "descricao" : "Tarefa 4 - criação de Frontend Mobile com React Native",
         "dataInclusao" : "11/10/2019",
+        "concluidoEm": "14/10/2019",
+        "tempoConclusao" : 0,
         "concluido" : false,
         "nomeColaborador" : "Joyce"
     },
     {
         "id" : 5,
         "descricao" : "Tarefa 5 - Testes",
-        "dataInclusao" : "12/10/2019",
+        "dataInclusao" : "08/10/2019",
+        "concluidoEm": "17/10/2019",
+        "tempoConclusao" : 0,
         "concluido" : false,
         "nomeColaborador" : "Larissa"
     },
@@ -38,6 +48,8 @@
         "id" : 6,
         "descricao" : "Tarefa 6 - Deploy",
         "dataInclusao" : "15/10/2019",
+        "concluidoEm": "18/10/2019",
+        "tempoConclusao" : 0,
         "concluido" : false,
         "nomeColaborador" : "Gra"
     }

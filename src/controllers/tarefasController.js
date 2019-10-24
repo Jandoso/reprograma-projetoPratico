@@ -1,11 +1,22 @@
 const tarefas = require('../model/tarefas.json');
 
-exports.get = (req, res) => {
-    console.log(req, url);
-    res.status(200).send(tarefas);
-};
+function tempoConclusao(dataInclusao, dataConclusao){
+    const inclusao = new Date(tarefas.dataInclusao);
+    const conclusao = new Date(tarefas.concluidoEm);
+    const tempoParaConcluir = conclusao - inclusao;
+    return tempoParaConcluir
+}
 
-exports.getTarefas = (req, res) => {
+exports.get = (req, res) => {
+    tarefas.sort((a, b) => {
+        if(new Date(a.dataInclusao) < new Date(b.dataInclusao)){
+            return 1;
+        } if (new Date(a.dataInclusao) > new Date(b.dataInclusao)){
+            return -1;
+        } return 0;
+    });
+    const tempoTarefa = tarefas.forEach(tempoConclusao);
+    tarefas.tempoConclusao = tempoTarefa;
     res.status(200).send(tarefas);
 };
 
