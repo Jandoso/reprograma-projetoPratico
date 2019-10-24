@@ -20,7 +20,7 @@
     {
         "id" : 3,
         "descricao" : "Tarefa 3 - criação de Frontend com React",
-        "dataInclusao" : "10/10/2019",
+        "dataInclusao" : "10/05/2019",
         "concluidoEm": "13/10/2019",
         "tempoConclusao" : 0,
         "concluido" : false,
@@ -38,7 +38,7 @@
     {
         "id" : 5,
         "descricao" : "Tarefa 5 - Testes",
-        "dataInclusao" : "08/10/2019",
+        "dataInclusao" : "08/08/2019",
         "concluidoEm": "17/10/2019",
         "tempoConclusao" : 0,
         "concluido" : false,

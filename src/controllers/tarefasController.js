@@ -1,30 +1,40 @@
 const tarefas = require('../model/tarefas.json');
 
-function tempoConclusao(dataInclusao, dataConclusao){
-    const inclusao = new Date(tarefas.dataInclusao);
-    const conclusao = new Date(tarefas.concluidoEm);
-    const tempoParaConcluir = conclusao - inclusao;
-    return tempoParaConcluir
-}
+function transformarConclusaoEmDate(fim){
+    const conclusaoSplitada = fim.split('/');
+    const conclusao = new Date(conclusaoSplitada[2], conclusaoSplitada[1] - 1, conclusaoSplitada[0]);
+    return conclusao;
+};
+
+function transformarInclusaoEmDate(inicio){
+    const inclusaoSplitada = inicio.split('/');
+    const inclusao = new Date(inclusaoSplitada[2], inclusaoSplitada[1] - 1, inclusaoSplitada[0]);
+    return inclusao;
+};
+
+function tempoParaConclusaoEmDias(conclusao, inclusao) {
+    const diasEmMilissegundos = 86400000;
+    return (conclusao - inclusao) / diasEmMilissegundos;
+};
 
 exports.get = (req, res) => {
-    tarefas.sort((a, b) => {
-        if(new Date(a.dataInclusao) < new Date(b.dataInclusao)){
-            return 1;
-        } if (new Date(a.dataInclusao) > new Date(b.dataInclusao)){
-            return -1;
-        } return 0;
+    tarefas.forEach(item => item.concluidoEm = transformarConclusaoEmDate(item.concluidoEm));
+    tarefas.forEach(item => item.dataInclusao = transformarInclusaoEmDate(item.dataInclusao))
+
+    tarefas.forEach(item => item.tempoConclusao = tempoParaConclusaoEmDias(item.concluidoEm, item.dataInclusao));
+    
+    tarefas.sort((a,b) => {
+        return (a.dataInclusao < b.dataInclusao) ? 1 : (a.dataInclusao > b.dataInclusao) ? -1 : 0
     });
-    const tempoTarefa = tarefas.forEach(tempoConclusao);
-    tarefas.tempoConclusao = tempoTarefa;
+    
     res.status(200).send(tarefas);
 };
 
 exports.getTarefaById = (req, res) => {
     const id = req.params.id;
-    if (id > tarefas.length || id <= 0){
+    if (id > tarefas.length || id <= 0) {
         res.redirect(301, '/');
-    }else{
+    } else {
         res.status(200).send(tarefas.find(tarefa => tarefa.id == id));
     };
 };
